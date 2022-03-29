@@ -177,7 +177,7 @@ const app = new Vue({
     },
     methods:{
         imgPath(contact){
-            return `/img-bolzapp/avatar${contact.avatar}.jpg`;
+            return `img-bolzapp/avatar${contact.avatar}.jpg`;
            //console.log(`/img-bolzapp/avatar${contact.avatar}.jpg`);
         }
     }
