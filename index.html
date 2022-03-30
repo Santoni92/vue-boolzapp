@@ -20,7 +20,7 @@
             <!--user info-->
             <div class="user bg-primary">
                 <div class="user-info">
-                    <img class="avatar" src="img-bolzapp/avatar_1.jpg" alt="">
+                    <img class="avatar" src="img-bolzapp/avatar_io.jpg" alt="">
                     Sofia
                 </div>
                 <div class="user-actions">
@@ -55,7 +55,7 @@
                         <img class="avatar" v-bind:src="imgPath(contact)" alt="" >
                         <div class="info">
                             {{contact.name}}
-                            <p>Ultimo messaggio inviato</p>
+                            <p>{{getLastMessage(contact)}}</p>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
             <!--chat-actions-->
             <div class="chat-actions bg-primary">
                 <i class="fa-solid fa-face-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage(contacts[activeUser].messages)">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage(contacts[activeUser].messages)" >
                 <i class="fa-solid fa-microphone"></i>
             </div>
         </div>

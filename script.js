@@ -190,6 +190,11 @@ const app = new Vue({
                 return `${message.status}`
             
         },
+        getLastMessage(contact){    //funzione per recuperare l'ultimo messagio inviato da ciascuno dei vari contatti
+            const messages = contact.messages;
+            const lastMessage = (messages.length > 0) ? messages[messages.length - 1].message : ''; //controllo che l'ultimo messagio inviato non sia la stringa vuota
+            return lastMessage; 
+        },
         addMessage(message){
             //creo oggetto che mi rappresenta il nuovo messaggio da aggiungere all'array messages del contatto selezionato(attivo)
             const newMessage={
@@ -197,6 +202,15 @@ const app = new Vue({
                 status:'sent'
             }
             message.push(newMessage);   //aggiungo l'oggetto creato all'array di oggetti 'message'
+            setTimeout(addReply,1000);
+        },
+        addReply(message){
+            const messageReply={
+                message:'OK',
+                status:'received'
+            }
+            contacts[activeUser].messages.push(messageReply);   
         }
+        
     }
 });
