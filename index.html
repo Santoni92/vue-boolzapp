@@ -49,7 +49,7 @@
                     <div class="user-info">
                         <img class="avatar" v-bind:src="imgPath(contact)" alt="">
                         <div class="info">
-                            sofia
+                            {{contact.name}}
                             <p></p>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                 <div class="message received">tutto fatto!</div>
             </div>
             <!--chat-actions-->
-            
+
             <div class="chat-actions bg-primary">
                 <i class="fa-solid fa-face-smile"></i>
                 <input type="text" placeholder="Scrivi un messaggio">
