@@ -1,3 +1,4 @@
+/*generics*/
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +8,125 @@
 body {
   font-family: sans-serif;
 }
-
-.container {
+/*utilities*/
+.flex {
   display: flex;
+}
+
+.bg-primary {
+  background-color: #eaeaea;
+}
+
+/*content*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contacts-container {
+  width: 34%;
+  height: 100vh;
+}
+.avatar {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-actions {
+  color: #b1b1b1;
+}
+
+.user-actions i {
+  margin-right: 5px;
+}
+
+.notifications {
+  background-color: #8edafc;
+  display: flex;
+  padding: 15px;
+}
+
+.circle-icon {
+  background-color: white;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  padding-top: 15px;
+  margin-right: 10px;
+}
+
+.notification-message a {
+  color: black;
+}
+
+.search-contacts input {
+  font-size: 18px;
+}
+
+.contact-items {
+  border: 1px solid #f6f6f6;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100vh;
+  background-image: url("img-bolzapp/mine.jpg");
+}
+
+.chat {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  padding: 0px 50px;
+}
+
+.sent {
+  background-color: #d5f9ba;
+  align-self: flex-end;
+}
+
+.received {
+  background-color: white;
+  align-self: flex-start;
+}
+
+.message {
+  min-width: 200px;
+  border: 2px solid white;
+  padding: 5px 10px;
+  margin: 20px 0px;
+  color: #000;
+  border-radius: 10px;
+}
+
+.selected-contact {
+  border-left: 1px solid #b1b1b1;
+}
+
+.chat-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 50px;
+  border-left: 1px solid #b1b1b1;
 }

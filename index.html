@@ -6,22 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!--importo il file JS di Vue-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <!--collego il css-->
     <link rel="stylesheet" href="style.css">
     <title>Boolzapp</title>
 </head>
 <body>
-    <div class="container" id="container">
-        <div id="sez-contacts">
-            <ul>
-                <li v-for="(contact,index) in contacts">
-                    {{contact.name}}
-                   <img v-bind:src="imgPath(contact)" alt="">
-                </li>
-            </ul>
+    <div class="container flex" id="root">
+        <!--parte sx in cui vi sono i contatti-->
+        <div class="contacts-container">
+            <!--user info-->
+            <div class="user bg-primary">
+                <div class="user-info">
+                    <img class="avatar" src="img-bolzapp/avatar_1.jpg" alt="">
+                </div>
+                <div class="user-actions">
+                    <i class="fa-solid fa-circle-dashed"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+                
+            </div>
+            <!--notifications-->
+            <div class="notifications">
+                <div class="circle-icon">
+                    <i class="fa-solid fa-bell-slash"></i>
+                </div>
+                <div class="notification-message">
+                    <p>Ricevi notifiche di nuovi messaggi</p>
+                    <a href="#">Attiva notifiche desktop</a>
+                </div>
+            </div>
+            <!--search contacts-->
+            <div class="search-contacts">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Cerca o inizia una nuova chat"> 
+            </div>
+            <!--contacts-list-->
+            <div class="contacts-list">
+                <div class="contact-items" v-for="contact in contacts">
+                    <div class="user-info">
+                        <img class="avatar" v-bind:src="imgPath(contact)" alt="">
+                        <div class="info">
+                            sofia
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div id="sez-message"></div>
+
+        <!--parte dx in cui vi sono i messaggi-->
+        <div class="chat-container">
+            <!--selected-contact-->
+            <div class="selected-contact">
+                <div class="user bg-primary">
+                    <div class="user-info">
+                        <img class="avatar" src="" alt="">
+                        Michele
+                    </div>
+                    <div class="user-actions">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+               
+            </div>
+            <!--chat-->
+            <div class="chat">
+                <div class="message sent">portato a spasso il cane?</div>
+                <div class="message sent">fatto la spesa?</div>
+                <div class="message received">tutto fatto!</div>
+            </div>
+            <!--chat-actions-->
+            
+            <div class="chat-actions bg-primary">
+                <i class="fa-solid fa-face-smile"></i>
+                <input type="text" placeholder="Scrivi un messaggio">
+                <i class="fa-solid fa-microphone"></i>
+            </div>
+        </div>
+
     </div>
 
     <!--my script-->

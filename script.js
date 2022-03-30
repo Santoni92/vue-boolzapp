@@ -170,7 +170,7 @@ const contacts = [
 
 
 const app = new Vue({
-    el:'#container',
+    el:'#root',
     data:{
         contacts
 
