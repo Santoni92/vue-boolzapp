@@ -84,8 +84,8 @@
             <!--chat-->
             <div class="chat" v-if="activeUser !== undefined" >
                 <div v-for="message in contacts[activeUser].messages">
-                    <div v-bind:class="['message',messageTypology(activeUser)]"></div>
-                    {{message}}
+                    <div v-bind:class="['message',messageTypology(message)]"> {{message}}</div>
+                   
                 </div>
                 <!--div class="message sent">portato a spasso il cane?</div>
                 <div class="message sent">fatto la spesa?</div>

@@ -185,8 +185,8 @@ const app = new Vue({
             this.activeUser = index;
             console.log(this.activeUser);
         },
-        messageTypology(activeUser){
-                return `${contacts[activeUser].messages}`;
+        messageTypology(message){
+                return `${message.status}`
             
         }
     }
