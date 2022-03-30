@@ -21,6 +21,7 @@
             <div class="user bg-primary">
                 <div class="user-info">
                     <img class="avatar" src="img-bolzapp/avatar_1.jpg" alt="">
+                    Sofia
                 </div>
                 <div class="user-actions">
                     <i class="fa-solid fa-circle-dashed"></i>
@@ -86,7 +87,7 @@
             </div>
 
             <!--chat-->
-            <div class="chat" v-if="activeUser !== undefined" >
+            <div class="chat" v-if="activeUser !== undefined">
                 <div v-for="message in contacts[activeUser].messages" v-bind:class="['message',messageTypology(message)]">
                     {{message.message}}
                 </div>
@@ -99,7 +100,7 @@
             <!--chat-actions-->
             <div class="chat-actions bg-primary">
                 <i class="fa-solid fa-face-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage(contacts[activeUser].messages)">
                 <i class="fa-solid fa-microphone"></i>
             </div>
         </div>

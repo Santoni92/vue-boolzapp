@@ -173,7 +173,8 @@ const app = new Vue({
     el:'#root',
     data:{
         contacts,
-        activeUser: undefined
+        activeUser: undefined,
+        newMessage: ' '
 
     },
     methods:{
@@ -188,6 +189,14 @@ const app = new Vue({
         messageTypology(message){
                 return `${message.status}`
             
+        },
+        addMessage(message){
+            //creo oggetto che mi rappresenta il nuovo messaggio da aggiungere all'array messages del contatto selezionato(attivo)
+            const newMessage={
+                message:this.newMessage,
+                status:'sent'
+            }
+            message.push(newMessage);   //aggiungo l'oggetto creato all'array di oggetti 'message'
         }
     }
 });
