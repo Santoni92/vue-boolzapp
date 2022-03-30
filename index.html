@@ -68,10 +68,14 @@
             <!--selected-contact-->
             <div class="selected-contact">
                 <div class="user bg-primary">
-                    <div class="user-info">
-                        <img class="avatar" src="" alt="">
-                        Michele
+                    <div v-if="activeUser !== undefined" class="user-info">
+                        <img  class="avatar" v-bind:src="imgPath(contacts[activeUser])" alt="">
+                        <div>
+                            {{contacts[activeUser].name}}
+                            <p>Ultimo accesso oggi alle 12:00</p>
+                        </div>
                     </div>
+                    <div v-else class="user-info"></div>
                     <div class="user-actions">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
