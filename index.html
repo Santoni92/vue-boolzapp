@@ -16,6 +16,7 @@
     <div class="container flex" id="root">
         <!--parte sx in cui vi sono i contatti-->
         <div class="contacts-container">
+
             <!--user info-->
             <div class="user bg-primary">
                 <div class="user-info">
@@ -28,6 +29,7 @@
                 </div>
                 
             </div>
+
             <!--notifications-->
             <div class="notifications">
                 <div class="circle-icon">
@@ -38,19 +40,21 @@
                     <a href="#">Attiva notifiche desktop</a>
                 </div>
             </div>
+
             <!--search contacts-->
             <div class="search-contacts">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Cerca o inizia una nuova chat"> 
             </div>
+
             <!--contacts-list-->
             <div class="contacts-list">
-                <div class="contact-items" v-for="contact in contacts">
-                    <div class="user-info">
-                        <img class="avatar" v-bind:src="imgPath(contact)" alt="">
+                <div class="contact-items" v-for="(contact,index) in contacts">
+                    <div class="user-info" @click="userSelection(index)">
+                        <img class="avatar" v-bind:src="imgPath(contact)" alt="" >
                         <div class="info">
                             {{contact.name}}
-                            <p></p>
+                            <p>Ultimo messaggio inviato</p>
                         </div>
                     </div>
                 </div>
@@ -60,6 +64,7 @@
 
         <!--parte dx in cui vi sono i messaggi-->
         <div class="chat-container">
+
             <!--selected-contact-->
             <div class="selected-contact">
                 <div class="user bg-primary">
@@ -75,14 +80,15 @@
                 </div>
                
             </div>
-            <!--chat-->
-            <div class="chat">
-                <div class="message sent">portato a spasso il cane?</div>
-                <div class="message sent">fatto la spesa?</div>
-                <div class="message received">tutto fatto!</div>
-            </div>
-            <!--chat-actions-->
 
+            <!--chat-->
+            <div class="chat" v-for="message in contacts[1].messages">
+                <!--div class="message sent">portato a spasso il cane?</div>
+                <div class="message sent">fatto la spesa?</div>
+                <div class="message received">tutto fatto!</div-->
+            </div>
+
+            <!--chat-actions-->
             <div class="chat-actions bg-primary">
                 <i class="fa-solid fa-face-smile"></i>
                 <input type="text" placeholder="Scrivi un messaggio">

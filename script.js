@@ -172,13 +172,18 @@ const contacts = [
 const app = new Vue({
     el:'#root',
     data:{
-        contacts
+        contacts,
+        activeUser: undefined
 
     },
     methods:{
         imgPath(contact){
             return `img-bolzapp/avatar${contact.avatar}.jpg`;
            //console.log(`/img-bolzapp/avatar${contact.avatar}.jpg`);
+        },
+        userSelection(index){
+            this.activeUser = index;
+            console.log(this.activeUser);
         }
     }
 });
