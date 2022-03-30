@@ -82,7 +82,9 @@
             </div>
 
             <!--chat-->
-            <div class="chat" v-for="message in contacts[1].messages">
+            <div class="chat" v-for="message in contacts[activeUser].messages">
+                <div v-if="activeUser !== undefined" class="chat">{{message}}</div>
+                <div v-else class="chat"></div>
                 <!--div class="message sent">portato a spasso il cane?</div>
                 <div class="message sent">fatto la spesa?</div>
                 <div class="message received">tutto fatto!</div-->
