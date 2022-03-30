@@ -184,6 +184,10 @@ const app = new Vue({
         userSelection(index){
             this.activeUser = index;
             console.log(this.activeUser);
+        },
+        messageTypology(activeUser){
+                return `${contacts[activeUser].messages}`;
+            
         }
     }
 });

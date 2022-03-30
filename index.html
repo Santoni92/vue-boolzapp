@@ -82,13 +82,16 @@
             </div>
 
             <!--chat-->
-            <div class="chat" v-for="message in contacts[activeUser].messages">
-                <div v-if="activeUser !== undefined" class="chat">{{message}}</div>
-                <div v-else class="chat"></div>
+            <div class="chat" v-if="activeUser !== undefined" >
+                <div v-for="message in contacts[activeUser].messages">
+                    <div v-bind:class="['message',messageTypology(activeUser)]"></div>
+                    {{message}}
+                </div>
                 <!--div class="message sent">portato a spasso il cane?</div>
                 <div class="message sent">fatto la spesa?</div>
                 <div class="message received">tutto fatto!</div-->
             </div>
+            <div v-else class="chat"></div>
 
             <!--chat-actions-->
             <div class="chat-actions bg-primary">
