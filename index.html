@@ -79,7 +79,6 @@
                             <p>Ultimo accesso oggi alle 12:00</p>
                         </div>
                     </div>
-                    <div v-else class="user-info"></div>
                     <div class="user-actions">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
@@ -91,24 +90,24 @@
 
             <!--chat-->
             <div class="chat" > <!--v-if="activeUser !== undefined"-->
-                <div v-for="message in contacts[activeUser].messages" v-bind:class="['message',message.status]" >
-                    {{message.message}}
+                <div v-for="(message,index) in contacts[activeUser].messages" v-bind:class="['message',message.status]" >
+                    <div @click="deleteMessage(index)">{{message.message}}</div>
+                    <!--{{message.message}}-->
                 </div>
+                <!--{{message.message}}-->
                 <!--div class="message sent">portato a spasso il cane?</div>
                 <div class="message sent">fatto la spesa?</div>
                 <div class="message received">tutto fatto!</div-->
             </div>
-            <div v-else class="chat"></div>
 
             <!--chat-actions-->
             <div class="chat-actions bg-primary">
                 <i class="fa-solid fa-face-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage(contacts[activeUser].messages)" >
+                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage(contacts[activeUser].messages)" />
                 <i class="fa-solid fa-microphone"></i>
             </div>
         </div>
         <div v-else class="chat-container"></div>
-
     </div>
 
     <!--my script-->

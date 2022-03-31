@@ -175,8 +175,8 @@ const app = new Vue({
         contacts,
         activeUser: undefined,
         newMessage: ' ',
-        stringInput: ''
-
+        stringInput: '',
+       // isReading: false
     },
     methods:{
         imgPath(contact){
@@ -218,8 +218,8 @@ const app = new Vue({
                 status:'sent'
             };
             message.push(newMessage);   //aggiungo l'oggetto creato all'array di oggetti 'message'
-            newMessage: ' '
-            setTimeout(this.addReply,1000,message);
+            setTimeout(this.addReply,1000,message); //come ulteriore parametro passo message che è il parametro che serve alla funzione addReply
+            this.newMessage = '';   //resetto il text dell'input
         },
         addReply(message){
             const messageReply={
@@ -238,6 +238,12 @@ const app = new Vue({
                     contacts[i].visible = false;
                 }
             }
+            this.stringInput = '';  //resetto il text dell'input
+        },
+        deleteMessage(index){
+            //this.isReading = true;
+            this. contacts[this.activeUser].messages.splice(index,1)
+            //message[index].splice(i,1);
         }
         
     }
