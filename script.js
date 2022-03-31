@@ -175,7 +175,7 @@ const app = new Vue({
         contacts,
         activeUser: undefined,
         newMessage: ' ',
-        stringInput: '',
+        stringInput: '',    //stringa di ricerca dell'utente nei contatti
         isReady: false  //serve per settare la direttiva per far vedere o meno il div con l'opzione di elimianre il messagio
     },
     methods:{

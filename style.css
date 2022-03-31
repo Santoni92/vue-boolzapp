@@ -138,6 +138,9 @@ body {
 #menu{
   height:30px;
   width:130px;
+  position:relative;
+  left:0;
+  bottom:0;
   z-index: 999;
   margin-top:10px;
 }
