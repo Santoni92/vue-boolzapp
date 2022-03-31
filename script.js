@@ -174,7 +174,8 @@ const app = new Vue({
     data:{
         contacts,
         activeUser: undefined,
-        newMessage: ' '
+        newMessage: ' ',
+        stringInput: ''
 
     },
     methods:{
@@ -190,26 +191,51 @@ const app = new Vue({
                 return `${message.status}`
             
         },
-        getLastMessage(contact){    //funzione per recuperare l'ultimo messagio inviato da ciascuno dei vari contatti
+        getLastMessageElement(contact){    //funzione per recuperare l'ultimo messagio inviato da ciascuno dei vari contatti
             const messages = contact.messages;
-            const lastMessage = (messages.length > 0) ? messages[messages.length - 1].message : ''; //controllo che l'ultimo messagio inviato non sia la stringa vuota
+            const lastMessage = (messages.length > 0) ? messages[messages.length - 1] : undefined; //controllo che l'ultimo messagio inviato non sia la stringa vuota
             return lastMessage; 
+        },
+        getLastMessage(contact){    //funzione per recuperare l'ultimo messagio inviato da ciascuno
+            //const messages = contact.messages;
+           // const lastMessage = (messages.length > 0) ? messages[messages.length - 1].message : '';
+           const lastMessage = this.getLastMessageElement(contact);
+            
+            return lastMessage ? lastMessage.message : ''; 
+        },
+        getLastMessageDate(contact){
+            const lastMessage = this.getLastMessageElement(contact);
+            const date = lastMessage.date;
+            const fullHour = date.split(' ')[1];
+            const temporary = fullHour.split(':');
+            return temporary[0] + ':'  +  temporary[1];
         },
         addMessage(message){
             //creo oggetto che mi rappresenta il nuovo messaggio da aggiungere all'array messages del contatto selezionato(attivo)
             const newMessage={
+                date: '10/01/2020 15:51:00',
                 message:this.newMessage,
                 status:'sent'
-            }
+            };
             message.push(newMessage);   //aggiungo l'oggetto creato all'array di oggetti 'message'
-            setTimeout(addReply,1000);
+            setTimeout(this.addReply,1000,message);
         },
         addReply(message){
             const messageReply={
+                date: '10/01/2020 15:51:00',
                 message:'OK',
                 status:'received'
+            };
+            message.push(messageReply);   
+        },
+        searchString(string){
+            for(let i = 0; i < contacts.length;i++){
+                if(contacts[i].name.includes(string)){
+                    contacts[i].visible = true;
+                }else{
+                    contacts[i].visible = false;
+                }
             }
-            contacts[activeUser].messages.push(messageReply);   
         }
         
     }

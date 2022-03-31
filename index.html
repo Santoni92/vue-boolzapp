@@ -24,7 +24,7 @@
                     Sofia
                 </div>
                 <div class="user-actions">
-                    <i class="fa-solid fa-circle-dashed"></i>
+                    <i class="fa-solid fa-circle-notch"></i>
                     <i class="fa-solid fa-message"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
@@ -45,19 +45,21 @@
             <!--search contacts-->
             <div class="search-contacts">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat"> 
+                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="stringInput" @keyup.enter="searchString(stringInput)"> 
             </div>
 
             <!--contacts-list-->
             <div class="contacts-list">
                 <div class="contact-items" v-for="(contact,index) in contacts">
-                    <div class="user-info" @click="userSelection(index)">
+                    <div v-if="contact.visible == true" @click="userSelection(index)" class="user-info">
                         <img class="avatar" v-bind:src="imgPath(contact)" alt="" >
                         <div class="info">
                             {{contact.name}}
+                            <p>{{getLastMessageDate(contact)}}</p>
                             <p>{{getLastMessage(contact)}}</p>
                         </div>
                     </div>
+                    <div v-else class="contact-items"></div>
                 </div>
             </div>
         </div>
@@ -88,7 +90,7 @@
 
             <!--chat-->
             <div class="chat" v-if="activeUser !== undefined">
-                <div v-for="message in contacts[activeUser].messages" v-bind:class="['message',messageTypology(message)]">
+                <div v-for="message in contacts[activeUser].messages" v-bind:class="['message',messageTypology(message)]" >
                     {{message.message}}
                 </div>
                 <!--div class="message sent">portato a spasso il cane?</div>
