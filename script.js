@@ -176,6 +176,7 @@ const app = new Vue({
         activeUser: undefined,
         newMessage: ' ',
         stringInput: '',
+        isReady: false  //serve per settare la direttiva per far vedere o meno il div con l'opzione di elimianre il messagio
     },
     methods:{
         imgPath(contact){
@@ -204,10 +205,14 @@ const app = new Vue({
         },
         getLastMessageDate(contact){
             const lastMessage = this.getLastMessageElement(contact);
-            const date = lastMessage.date;
-            const fullHour = date.split(' ')[1];
-            const temporary = fullHour.split(':');
-            return temporary[0] + ':'  +  temporary[1];
+            if(lastMessage !== undefined){
+                const date = lastMessage.date;
+                const fullHour = date.split(' ')[1];
+                const temporary = fullHour.split(':');
+                return temporary[0] + ':'  +  temporary[1];
+            }else{
+                return '';
+            }
         },
         addMessage(message){
             //creo oggetto che mi rappresenta il nuovo messaggio da aggiungere all'array messages del contatto selezionato(attivo)
@@ -239,9 +244,12 @@ const app = new Vue({
             }
             this.stringInput = '';  //resetto il text dell'input
         },
+        setToDelete(){
+            this.isReady = true;
+        },
         deleteMessage(index){
-            if(contacts[this.activeUser].messages.length > 0)
-                this. contacts[this.activeUser].messages.splice(index,1);
+             this. contacts[this.activeUser].messages.splice(index,1);   
+             this.isReady = false; 
         }
         
     }
