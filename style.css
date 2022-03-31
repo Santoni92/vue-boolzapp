@@ -141,6 +141,8 @@ body {
   flex-direction: column;
   margin-top:20px;
   padding:10px;
+  border:1px solid black;
+  border-radius:50px;
   position:absolute;
   z-index: 999;
 }
