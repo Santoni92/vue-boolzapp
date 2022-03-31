@@ -1,4 +1,4 @@
-/*generics*/
+/***************************************generics***************************************/
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +8,7 @@
 body {
   font-family: sans-serif;
 }
-/*utilities*/
+/***************************************utilities***************************************/
 .flex {
   display: flex;
 }
@@ -17,16 +17,21 @@ body {
   justify-content: space-between;
 }
 
+.position{
+  position:relative;
+}
+
 .bg-primary {
   background-color: #eaeaea;
 }
 
-/*content*/
+/****************************************content***************************************/
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
-
+/*sez. sinistra in cui sono presenti i contatti*/
+/*****************contacts-container************/
 .contacts-container {
   width: 34%;
   height: 100vh;
@@ -35,7 +40,7 @@ body {
   width: 50px;
   border-radius: 50%;
 }
-
+/********user*******/
 .user {
   display: flex;
   align-items: center;
@@ -55,7 +60,7 @@ body {
 .user-actions i {
   margin-right: 5px;
 }
-
+/*****notifications******/
 .notifications {
   background-color: #8edafc;
   display: flex;
@@ -75,11 +80,11 @@ body {
 .notification-message a {
   color: black;
 }
-
+/*****search-contacts*****/
 .search-contacts input {
   font-size: 18px;
 }
-
+/*****contacts-list******/
 .contact-items {
   border: 1px solid #f6f6f6;
 }
@@ -88,7 +93,8 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+/*sez. destra in cui sono presenti i messaggi scambiati*/
+/*********************chat-container**************/
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -96,7 +102,7 @@ body {
   height: 100vh;
   background-image: url("img-bolzapp/mine.jpg");
 }
-
+/*********chat*******/
 .chat {
   display: flex;
   flex-grow: 1;
@@ -122,7 +128,7 @@ body {
   color: #000;
   border-radius: 10px;
 }
-
+/******selected-contact*****/
 .selected-contact {
   border-left: 1px solid #b1b1b1;
 }
@@ -145,8 +151,4 @@ body {
   border-radius:50px;
   position:absolute;
   z-index: 999;
-}
-
-.position{
-  position:relative;
 }

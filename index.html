@@ -94,7 +94,7 @@
                     <div  class="flex justifycontent position">
                         {{message.message}}
                         <i class="fa-solid fa-angle-down" @click="setToDelete()"></i>
-                        <div v-if="isReady" @click="deleteMessage(message)" id="menu">Delete message</div>
+                        <div v-if="isReady" @click="deleteMessage(index)" id="menu">Delete message</div>
                     </div>
                     <!--{{message.message}}-->
                 </div>
