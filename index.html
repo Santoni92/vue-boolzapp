@@ -91,11 +91,11 @@
             <!--chat-->
             <div class="chat" > <!--v-if="activeUser !== undefined"-->
                 <div v-for="(message,index) in contacts[activeUser].messages" v-bind:class="['message',message.status]" >
-                    <div  class="flex justifycontent">
+                    <div  class="flex justifycontent position">
                         {{message.message}}
                         <i class="fa-solid fa-angle-down" @click="setToDelete()"></i>
+                        <div v-if="isReady" @click="deleteMessage(message)" id="menu">Delete message</div>
                     </div>
-                    <div v-if="isReady" @click="deleteMessage(message)" id="menu">Delete message</div>
                     <!--{{message.message}}-->
                 </div>
                 <!--{{message.message}}-->

@@ -136,11 +136,15 @@ body {
 }
 
 #menu{
-  height:30px;
-  width:130px;
-  position:relative;
-  left:0;
-  bottom:0;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  margin-top:20px;
+  padding:10px;
+  position:absolute;
   z-index: 999;
-  margin-top:10px;
+}
+
+.position{
+  position:relative;
 }
