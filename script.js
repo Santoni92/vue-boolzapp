@@ -176,7 +176,6 @@ const app = new Vue({
         activeUser: undefined,
         newMessage: ' ',
         stringInput: '',
-       // isReading: false
     },
     methods:{
         imgPath(contact){
@@ -241,9 +240,8 @@ const app = new Vue({
             this.stringInput = '';  //resetto il text dell'input
         },
         deleteMessage(index){
-            //this.isReading = true;
-            this. contacts[this.activeUser].messages.splice(index,1)
-            //message[index].splice(i,1);
+            if(contacts[this.activeUser].messages.length > 0)
+                this. contacts[this.activeUser].messages.splice(index,1);
         }
         
     }
