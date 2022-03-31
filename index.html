@@ -28,7 +28,6 @@
                     <i class="fa-solid fa-message"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
-                
             </div>
 
             <!--notifications-->
@@ -59,19 +58,21 @@
                             <p>{{getLastMessage(contact)}}</p>
                         </div>
                     </div>
-                    <div v-else class="contact-items"></div>
+                    <div v-else></div>
                 </div>
             </div>
         </div>
 
 
         <!--parte dx in cui vi sono i messaggi-->
-        <div class="chat-container">
+        <div class="chat-container" v-if="activeUser !== undefined">    <!--se il contatto viene selezionato e quindi 
+                                                                         activeUser è diverso da undefined allora creo le
+                                                                         tre sezioni del div .chat-container altrimenti creo solo un unico div a cui assegno la classe .chat-container-->
 
             <!--selected-contact-->
             <div class="selected-contact">
                 <div class="user bg-primary">
-                    <div v-if="activeUser !== undefined" class="user-info">
+                    <div  class="user-info">    <!--v-if="activeUser !== undefined"-->
                         <img  class="avatar" v-bind:src="imgPath(contacts[activeUser])" alt="">
                         <div>
                             {{contacts[activeUser].name}}
@@ -89,8 +90,8 @@
             </div>
 
             <!--chat-->
-            <div class="chat" v-if="activeUser !== undefined">
-                <div v-for="message in contacts[activeUser].messages" v-bind:class="['message',messageTypology(message)]" >
+            <div class="chat" > <!--v-if="activeUser !== undefined"-->
+                <div v-for="message in contacts[activeUser].messages" v-bind:class="['message',message.status]" >
                     {{message.message}}
                 </div>
                 <!--div class="message sent">portato a spasso il cane?</div>
@@ -106,6 +107,7 @@
                 <i class="fa-solid fa-microphone"></i>
             </div>
         </div>
+        <div v-else class="chat-container"></div>
 
     </div>
 

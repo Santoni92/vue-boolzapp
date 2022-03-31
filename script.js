@@ -187,10 +187,10 @@ const app = new Vue({
             this.activeUser = index;
             console.log(this.activeUser);
         },
-        messageTypology(message){
+        /*messageTypology(message){
                 return `${message.status}`
             
-        },
+        },*/
         getLastMessageElement(contact){    //funzione per recuperare l'ultimo messagio inviato da ciascuno dei vari contatti
             const messages = contact.messages;
             const lastMessage = (messages.length > 0) ? messages[messages.length - 1] : undefined; //controllo che l'ultimo messagio inviato non sia la stringa vuota
@@ -218,6 +218,7 @@ const app = new Vue({
                 status:'sent'
             };
             message.push(newMessage);   //aggiungo l'oggetto creato all'array di oggetti 'message'
+            newMessage: ' '
             setTimeout(this.addReply,1000,message);
         },
         addReply(message){
@@ -230,7 +231,8 @@ const app = new Vue({
         },
         searchString(string){
             for(let i = 0; i < contacts.length;i++){
-                if(contacts[i].name.includes(string)){
+                string = string.toLowerCase();
+                if(contacts[i].name.toLowerCase().includes(string)){
                     contacts[i].visible = true;
                 }else{
                     contacts[i].visible = false;
