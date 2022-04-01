@@ -93,6 +93,7 @@
                 <div v-for="(message,index) in contacts[activeUser].messages" v-bind:class="['message',message.status]" >
                     <div  class="flex justifycontent position">
                         {{message.message}}
+                        <div>{{getHour(message)}}</div>
                         <i class="fa-solid fa-angle-down" @click="setToDelete()"></i>
                         <div v-if="isReady" @click="deleteMessage(index)" id="menu">Delete message</div>
                     </div>

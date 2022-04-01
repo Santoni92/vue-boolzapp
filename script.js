@@ -250,6 +250,12 @@ const app = new Vue({
         deleteMessage(index){
              this. contacts[this.activeUser].messages.splice(index,1);   
              this.isReady = false; 
+        },
+        getHour(message){
+                const date = message.date;
+                const fullHour = date.split(' ')[1];
+                const temporary = fullHour.split(':');
+                return temporary[0] + ':'  +  temporary[1];
         }
         
     }
