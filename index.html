@@ -44,7 +44,7 @@
             <!--search contacts-->
             <div class="search-contacts">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="stringInput" @keyup.enter="searchString(stringInput)"> 
+                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="stringInput" @keyup="searchString(stringInput)"> 
             </div>
 
             <!--contacts-list-->
@@ -94,8 +94,8 @@
                     <div  class="flex justifycontent position">
                         {{message.message}}
                         <div>{{getHour(message)}}</div>
-                        <i class="fa-solid fa-angle-down" @click="setToDelete()"></i>
-                        <div v-if="isReady" @click="deleteMessage(index)" id="menu">Delete message</div>
+                        <i class="fa-solid fa-angle-down" @click="setToDelete(index)"></i>
+                        <div v-if="deleteUser == index" @click="deleteMessage(index)" id="menu">Delete message</div>
                     </div>
                     <!--{{message.message}}-->
                 </div>

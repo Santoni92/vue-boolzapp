@@ -174,9 +174,9 @@ const app = new Vue({
     data:{
         contacts,
         activeUser: undefined,
-        newMessage: ' ',
+        newMessage: '',
         stringInput: '',    //stringa di ricerca dell'utente nei contatti
-        isReady: false  //serve per settare la direttiva per far vedere o meno il div con l'opzione di elimianre il messagio
+        deleteUser: undefined  //serve per settare la direttiva per far vedere o meno il div con l'opzione di elimianre il messagio
     },
     methods:{
         imgPath(contact){
@@ -234,22 +234,22 @@ const app = new Vue({
             message.push(messageReply);   
         },
         searchString(string){
-            for(let i = 0; i < contacts.length;i++){
+            for(let i = 0; i < this.contacts.length;i++){
                 string = string.toLowerCase();
-                if(contacts[i].name.toLowerCase().includes(string)){
-                    contacts[i].visible = true;
+                if(this.contacts[i].name.toLowerCase().includes(string)){
+                    this.contacts[i].visible = true;
                 }else{
-                    contacts[i].visible = false;
+                    this.contacts[i].visible = false;
                 }
             }
-            this.stringInput = '';  //resetto il text dell'input
+           // this.stringInput = '';  //resetto il text dell'input
         },
-        setToDelete(){
-            this.isReady = true;
+        setToDelete(index){
+            this.deleteUser = index;
         },
         deleteMessage(index){
              this. contacts[this.activeUser].messages.splice(index,1);   
-             this.isReady = false; 
+             this.deleteUser = undefined; 
         },
         getHour(message){
                 const date = message.date;

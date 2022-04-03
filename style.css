@@ -87,6 +87,7 @@ body {
 /*****contacts-list******/
 .contact-items {
   border: 1px solid #f6f6f6;
+  overflow: auto;
 }
 
 .contact-items {
