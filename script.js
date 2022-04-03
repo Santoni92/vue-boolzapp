@@ -221,9 +221,11 @@ const app = new Vue({
                 message:this.newMessage,
                 status:'sent'
             };
-            message.push(newMessage);   //aggiungo l'oggetto creato all'array di oggetti 'message'
-            setTimeout(this.addReply,1000,message); //come ulteriore parametro passo message che è il parametro che serve alla funzione addReply
-            this.newMessage = '';   //resetto il text dell'input
+            if(newMessage.message.length > 0){
+                message.push(newMessage);   //aggiungo l'oggetto creato all'array di oggetti 'message'
+                setTimeout(this.addReply,1000,message); //come ulteriore parametro passo message che è il parametro che serve alla funzione addReply
+                this.newMessage = '';   //resetto il text dell'input
+            }
         },
         addReply(message){
             const messageReply={
